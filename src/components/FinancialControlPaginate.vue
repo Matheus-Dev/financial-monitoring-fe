@@ -68,10 +68,9 @@ export default class FinancialControlPaginate extends Vue {
                 this.activeNextPage = true
             } else {
                 this.activeNextPage = false
-                this.parameters.page = resp.totalPage
+                this.parameters.page = (resp.totalPage) ? resp.totalPage : 1
                 this.fetchData()
             }
-            this.activeNextPage = (this.parameters.page + 1 <= resp.totalPage) ? true : false
             this.updateData(resp.data)
             this.updateParameters(this.parameters)
         }

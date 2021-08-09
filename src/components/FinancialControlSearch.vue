@@ -53,7 +53,7 @@ export default class FinancialControlSearch extends Vue {
 
         if (resp.status === 200) {
             if(this.parameters.page + 1 > resp.totalPage) {
-                this.parameters.page = resp.totalPage
+                this.parameters.page = (resp.totalPage) ? resp.totalPage : 1
                 this.fetchData()
             }
             this.updateData(resp.data)
